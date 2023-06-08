@@ -38,6 +38,7 @@ export default function AuthUser() {
     baseURL: "http://192.168.100.81:8000/api",
     headers: {
       "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   });
   return {

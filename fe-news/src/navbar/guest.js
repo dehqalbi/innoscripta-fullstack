@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "../components/home";
 import Login from "../components/login";
+import Register from "../components/register";
 import "../App.css";
 
 function Guest() {
@@ -19,12 +20,18 @@ function Guest() {
               Login
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/register">
+              Register
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </>
