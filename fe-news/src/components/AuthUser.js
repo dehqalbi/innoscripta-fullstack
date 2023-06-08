@@ -29,6 +29,11 @@ export default function AuthUser() {
     navigate("/dashboard");
   };
 
+  const logout = () => {
+    sessionStorage.clear();
+    navigate("/login");
+  };
+
   const http = axios.create({
     baseURL: "http://192.168.100.81:8000/api",
     headers: {
@@ -41,5 +46,6 @@ export default function AuthUser() {
     user,
     getToken,
     http,
+    logout,
   };
 }

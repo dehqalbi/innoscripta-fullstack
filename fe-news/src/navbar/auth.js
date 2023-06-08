@@ -2,9 +2,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "../components/home";
 import Dashboard from "../components/dashboard";
+import AuthUser from "../components/AuthUser";
 import "../App.css";
 
 function Auth() {
+  const { token, logout } = AuthUser();
+  const logoutUser = () => {
+    if (token != undefined) {
+      logout();
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-sm bg-dark">
@@ -18,6 +26,11 @@ function Auth() {
             <Link className="nav-link" to="/dashboard">
               Dashboard
             </Link>
+          </li>
+          <li className="nav-item">
+            <span role="button" className="nav-link" onClick={logoutUser}>
+              Logout
+            </span>
           </li>
         </ul>
       </nav>
