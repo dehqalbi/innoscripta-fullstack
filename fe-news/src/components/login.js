@@ -1,11 +1,16 @@
 import { useState } from "react";
+import AuthUser from "./AuthUser";
 
 export default function Login() {
+  const { http, setToken } = AuthUser();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const submitForm = () => {
-    console.log(email + " " + password);
+    // api call
+    http.post("./login", { email: email, password: password }).then((res) => {
+      setToken(res.data.user, res.data.access_token);
+    });
   };
   return (
     <div className="row justify-content-center pt-5">
